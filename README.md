@@ -1,9 +1,9 @@
 # 20201113
 
+<br>
 127.0.0.1:6379> XADD mystream * hello world
+</br>
 "1605285550847-0"
-127.0.0.1:6379> XGROUP CREATE mystream group-1
-(error) ERR Unknown subcommand or wrong number of arguments for 'CREATE'. Try XGROUP HELP.
 127.0.0.1:6379> XGROUP CREATE mystream group-1 $
 OK
 127.0.0.1:6379> XADD mystream * name KevinBlandy
