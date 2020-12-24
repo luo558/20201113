@@ -21,7 +21,8 @@ public class StreamMessageListener implements StreamListener<String, MapRecord<S
 
     @Override
     public void onMessage(MapRecord<String, String, String> message) {
-
+        // 通过RedisTemplate手动确认消息
+        this.stringRedisTemplate.opsForStream().acknowledge("group-1", message);
         // 消息ID
         RecordId messageId = message.getId();
 
@@ -30,8 +31,7 @@ public class StreamMessageListener implements StreamListener<String, MapRecord<S
 
         LOGGER.info("stream message。messageId={}, stream={}, body={}", messageId, message.getStream(), body);
 
-        // 通过RedisTemplate手动确认消息
-        //this.stringRedisTemplate.opsForStream().acknowledge("mystream", message);
+
     }
 
 
