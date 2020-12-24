@@ -31,6 +31,9 @@ public class StreamMessageListener implements StreamListener<String, MapRecord<S
         LOGGER.info("stream message。messageId={}, stream={}, body={}", messageId, message.getStream(), body);
 
         // 通过RedisTemplate手动确认消息
-        this.stringRedisTemplate.opsForStream().acknowledge("mystream", message);
+        //this.stringRedisTemplate.opsForStream().acknowledge("mystream", message);
     }
+
+
+
 }
